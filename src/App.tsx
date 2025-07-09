@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Pagination } from './components/Pagination';
+import { getNumbers } from './utils';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const items = getNumbers(1, 42).map(n => n);
 
 export const App: React.FC = () => {
   const [perPage, setPerPage] = useState(5);
@@ -8,13 +12,14 @@ export const App: React.FC = () => {
 
   const start = perPage * (currentPage - 1);
   const end = start + perPage;
+  const total = items[items.length - 1];
 
   return (
     <div className="container">
       <h1>Items with Pagination</h1>
 
       <p className="lead" data-cy="info">
-        Page {currentPage} (items {start + 1} - {Math.min(end, 42)} of 42)
+        Page {currentPage} (items {start + 1} - {Math.min(end, 42)} of {total})
       </p>
 
       <div className="form-group row">
@@ -43,7 +48,7 @@ export const App: React.FC = () => {
 
       <Pagination
         perPage={perPage}
-        total={42}
+        total={total}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />

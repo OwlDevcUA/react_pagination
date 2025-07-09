@@ -1,9 +1,6 @@
+import { items } from '../App';
 import { Item } from './Item';
-import { getNumbers } from '../utils';
 import classNames from 'classnames';
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const items = getNumbers(1, 42).map(n => `Item ${n}`);
 
 type Props = {
   perPage: number;

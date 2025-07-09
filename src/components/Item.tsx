@@ -1,5 +1,7 @@
 type Props = {
-  number: string;
+  number: number;
 };
 
-export const Item = ({ number }: Props) => <li data-cy="item">{number}</li>;
+export const Item = ({ number }: Props) => (
+  <li data-cy="item"> Item {number}</li>
+);
